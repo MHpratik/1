@@ -182,6 +182,8 @@
         <a href="#feed" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Threat Index</a>
         <a href="#virustotal" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">VirusTotal Static</a>
         <a href="#security-rules" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Security &amp; Warnings</a>
+        <a href="#steganography" onclick="switchView('steganography'); return false;" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Steganography <span class="float-right">→</span></a>
+
       </div>
 
       <!-- Volatility Second Page Switcher Link -->
@@ -432,6 +434,7 @@
           </div>
         </section>
 
+
         <!-- SECURITY RULES & WARNING SECTION -->
         <section id="security-rules" class="space-y-6">
           <div>
@@ -479,7 +482,97 @@
       </div> <!-- END VIEW 1 -->
 
 
-      <!-- ================= VIEW 2: VOLATILITY 3 MEMORY FORENSICS VAULT ================= -->
+      <!-- ================= VIEW 2: STEGANOGRAPHY PRACTICAL ================= -->
+      <div id="view-steganography" class="view-panel space-y-8">
+        <div class="shadow-card p-8 sm:p-10 rounded-3xl mana-border relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-72 h-72 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative z-10">
+            <div>
+              <div class="inline-flex items-center gap-2.5 bg-purple-500/15 text-purple-300 border border-purple-500/40 font-heading font-bold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
+                <span>🔐 CYBERSECURITY PRACTICAL</span>
+              </div>
+              <h1 class="font-display font-black text-3xl sm:text-4xl text-white">Steganography</h1>
+              <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl font-sans">Kali Linux practical guide: hide a text message inside an image using Steghide, inspect the image, and extract the message.</p>
+            </div>
+            <button onclick="switchView('main')" class="px-5 py-3 rounded-xl bg-slate-900 border border-purple-500/40 text-purple-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-purple-950 transition-all cursor-pointer shrink-0">← Return to Dashboard</button>
+          </div>
+        </div>
+
+        <!-- STEGANOGRAPHY SECTION -->
+        <section id="steganography" class="space-y-6">
+          <div>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Steganography</h2>
+            <p class="sub text-slate-400 text-sm mt-1">Kali Linux practical: hide a text message inside an image using Steghide, inspect the image, and extract the message.</p>
+          </div>
+
+          <div class="shadow-card p-6 sm:p-8 rounded-3xl mana-border space-y-5">
+            <div class="p-4 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 text-sm text-slate-300">
+              <strong class="text-cyan-300">Prerequisite:</strong> Keep a cover image named <code class="text-cyan-200">secretimg.jpg</code> in your working directory. These commands are for an authorized lab.
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <h3 class="font-heading font-bold text-cyan-300">1. Install Steghide</h3>
+              <p class="text-xs text-slate-400">Update package lists and install the tool.</p>
+              <pre class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 overflow-x-auto"><code>sudo apt-get update -y
+sudo apt install steghide
+steghide --version</code></pre>
+              <button type="button" class="px-3 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-purple-900 text-xs" data-copy="sudo apt-get update -y\nsudo apt install steghide\nsteghide --version">Copy commands</button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <h3 class="font-heading font-bold text-cyan-300">2. Create the secret message</h3>
+              <pre class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 overflow-x-auto"><code>nano secret.txt
+cat secret.txt
+ls</code></pre>
+              <p class="text-xs text-slate-400">In Nano, type <code>This is my hidden message</code>, then save with Ctrl+O, Enter, and exit with Ctrl+X.</p>
+              <button type="button" class="px-3 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-purple-900 text-xs" data-copy="nano secret.txt\ncat secret.txt\nls">Copy commands</button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <h3 class="font-heading font-bold text-cyan-300">3. Hide the message in the image</h3>
+              <pre class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 overflow-x-auto"><code>steghide embed -cf secretimg.jpg -ef secret.txt</code></pre>
+              <p class="text-xs text-slate-400">Enter a passphrase when prompted. The PDF's example uses <code>12345</code>; use a stronger passphrase outside a classroom demo.</p>
+              <button type="button" class="px-3 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-purple-900 text-xs" data-copy="steghide embed -cf secretimg.jpg -ef secret.txt">Copy command</button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <h3 class="font-heading font-bold text-cyan-300">4. Remove the original text file (optional lab step)</h3>
+              <pre class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 overflow-x-auto"><code>ls
+rm secret.txt</code></pre>
+              <p class="text-xs text-amber-300">Check that you are in the correct working directory before using <code>rm</code>. Do not delete the image.</p>
+              <button type="button" class="px-3 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-purple-900 text-xs" data-copy="ls\nrm secret.txt">Copy commands</button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <h3 class="font-heading font-bold text-cyan-300">5. Inspect the image and embedded data</h3>
+              <pre class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 overflow-x-auto"><code>steghide --info secretimg.jpg</code></pre>
+              <p class="text-xs text-slate-400">Follow the prompts and enter the passphrase to inspect the embedded file information.</p>
+              <button type="button" class="px-3 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-purple-900 text-xs" data-copy="steghide --info secretimg.jpg">Copy command</button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <h3 class="font-heading font-bold text-cyan-300">6. Extract the hidden message</h3>
+              <pre class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 overflow-x-auto"><code>steghide --extract -sf secretimg.jpg</code></pre>
+              <p class="text-xs text-slate-400">Enter the same passphrase used during embedding. Steghide should recreate <code>secret.txt</code>.</p>
+              <button type="button" class="px-3 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-purple-900 text-xs" data-copy="steghide --extract -sf secretimg.jpg">Copy command</button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-emerald-500/30 space-y-2">
+              <h3 class="font-heading font-bold text-emerald-300">7. Verify the extracted message</h3>
+              <pre class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 overflow-x-auto"><code>ls
+cat secret.txt</code></pre>
+              <p class="text-xs text-slate-400">Expected message: <code>This is my hidden message</code>.</p>
+              <button type="button" class="px-3 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-purple-900 text-xs" data-copy="ls\ncat secret.txt">Copy commands</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="flex justify-start pt-2">
+          <button onclick="switchView('main')" class="px-6 py-3 rounded-xl bg-cyan-400 text-black font-heading font-black text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-mana cursor-pointer">← Return to Threat Intelligence Dashboard</button>
+        </div>
+      </div> <!-- END STEGANOGRAPHY VIEW -->
+
+      <!-- ================= VIEW 3: VOLATILITY 3 MEMORY FORENSICS VAULT ================= -->
       <div id="view-volatility" class="view-panel space-y-8">
         
         <!-- Header for Volatility Vault -->
@@ -845,24 +938,22 @@
 
 /* Global View Switcher */
 function switchView(viewName) {
-  var viewMain = document.getElementById('view-main');
-  var viewVol = document.getElementById('view-volatility');
+  var views = {
+    main: document.getElementById('view-main'),
+    steganography: document.getElementById('view-steganography'),
+    volatility: document.getElementById('view-volatility')
+  };
   var primaryNav = document.getElementById('primary-nav-links');
   var volBtn = document.getElementById('volatility-nav-btn');
 
-  if(viewName === 'volatility') {
-    viewMain.classList.remove('active');
-    viewVol.classList.add('active');
-    primaryNav.style.opacity = '0.5';
-    volBtn.classList.add('bg-cyan-900', 'border-cyan-300');
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  } else {
-    viewVol.classList.remove('active');
-    viewMain.classList.add('active');
-    primaryNav.style.opacity = '1';
-    volBtn.classList.remove('bg-cyan-900', 'border-cyan-300');
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
+  Object.keys(views).forEach(function(name) {
+    if (views[name]) views[name].classList.toggle('active', name === viewName);
+  });
+
+  if (primaryNav) primaryNav.style.opacity = viewName === 'main' ? '1' : '0.75';
+  if (volBtn) volBtn.classList.toggle('bg-cyan-900', viewName === 'volatility');
+  if (volBtn) volBtn.classList.toggle('border-cyan-300', viewName === 'volatility');
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 </script>
 </body>
