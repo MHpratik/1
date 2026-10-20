@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phishing &amp; Malware Analysis Hub | iPratik404</title>
+<title>Phishing &amp; Malware Analysis Hub | Shadow Monarch Guild Archives</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -32,8 +32,7 @@
         fontFamily: {
           display: ['Cinzel', 'serif'],
           heading: ['Rajdhani', 'sans-serif'],
-          sans: ['Inter', 'sans-serif'],
-          mono: ['JetBrains Mono', 'monospace']
+          sans: ['Inter', 'sans-serif']
         },
         boxShadow: {
           'mana': '0 0 35px rgba(0, 240, 255, 0.4)',
@@ -51,9 +50,9 @@
     color: #f1f5f9;
     font-family: 'Inter', sans-serif;
     background-image: 
-      radial-gradient(circle at 10% 10%, rgba(0, 240, 255, 0.12) 0%, transparent 40%),
-      radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.06) 0%, transparent 60%);
+      radial-gradient(circle at 10% 10%, rgba(0, 240, 255, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
     background-attachment: fixed;
     overflow-x: hidden;
   }
@@ -68,7 +67,6 @@
     top: -1px; left: -1px; width: 12px; height: 12px;
     border-top: 2px solid #00f0ff; border-left: 2px solid #00f0ff;
     box-shadow: 0 0 8px #00f0ff;
-    z-index: 10;
   }
   .mana-border::after {
     content: '';
@@ -76,7 +74,6 @@
     bottom: -1px; right: -1px; width: 12px; height: 12px;
     border-bottom: 2px solid #00f0ff; border-right: 2px solid #00f0ff;
     box-shadow: 0 0 8px #00f0ff;
-    z-index: 10;
   }
 
   .shadow-card {
@@ -89,11 +86,11 @@
   .shadow-card:hover {
     border-color: rgba(168, 85, 247, 0.8);
     box-shadow: 0 0 35px rgba(168, 85, 247, 0.4);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
   }
 
   .scanlines {
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.008), rgba(0, 0, 255, 0.01));
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.008), rgba(0, 0, 255, 0.01));
     background-size: 100% 4px, 6px 100%;
     pointer-events: none;
   }
@@ -106,7 +103,6 @@
     animation: floatPulse 4s ease-in-out infinite;
   }
 
-  /* PAGE LOAD STAGGER & FADE ANIMATIONS */
   @keyframes pageLoadReveal {
     0% {
       opacity: 0;
@@ -130,7 +126,6 @@
     animation: pageLoadReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  /* Staggered entry classes for elements */
   .load-stagger > * {
     opacity: 0;
     animation: pageLoadReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -145,6 +140,14 @@
 
   .aura-glow {
     animation: pulseAura 3s ease-in-out infinite;
+  }
+
+  .view-panel {
+    display: none;
+  }
+  .view-panel.active {
+    display: block;
+    animation: pageLoadReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   ::-webkit-scrollbar { width: 8px; }
@@ -170,322 +173,527 @@
         </div>
       </div>
       <strong class="text-xs font-heading font-bold text-purple-400 uppercase tracking-widest mt-1 mb-2">Navigation System</strong>
-      <a href="#summary" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Mission Matrix</a>
-      <a href="#tasks" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Gate Raids</a>
-      <a href="#hybrid" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Hybrid Analysis</a>
-      <a href="#feed" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Threat Index</a>
-      <a href="#virustotal" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">VirusTotal Static</a>
-      <a href="#security-rules" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Security &amp; Warnings</a>
       
-      <a href="https://www.linkedin.com/in/pratik-ingale-aa11683ba/" target="_blank" rel="noopener noreferrer" class="mt-2 w-full py-2.5 px-3 rounded-xl bg-cyan-950/50 border border-cyan-500/40 text-cyan-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-cyan-900/60 hover:border-cyan-300 transition-all flex items-center justify-center gap-2 shadow-mana group">
-        <svg class="w-4 h-4 fill-current text-cyan-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/>
-        </svg>
-        <span>LinkedIn Profile</span>
-      </a>
+      <!-- Primary View Nav Links -->
+      <div id="primary-nav-links" class="flex flex-col gap-2">
+        <a href="#summary" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Mission Briefing</a>
+        <a href="#tasks" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Gate Raids</a>
+        <a href="#hybrid" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Hybrid Analysis</a>
+        <a href="#feed" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Threat Index</a>
+        <a href="#virustotal" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">VirusTotal Static</a>
+        <a href="#security-rules" onclick="switchView('main')" class="toc-link py-2 px-3 rounded-xl text-sm font-sans text-slate-300 hover:text-cyan-300 hover:bg-purple-950/40 border-l-2 border-transparent transition-all">Security &amp; Warnings</a>
+      </div>
 
-      <a href="https://github.com/MHpratik" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-3 rounded-xl bg-purple-950/50 border border-purple-500/40 text-purple-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-purple-900/60 hover:border-purple-300 transition-all flex items-center justify-center gap-2 shadow-shadow-monarch group">
-        <svg class="w-4 h-4 fill-current text-purple-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-        </svg>
-        <span>GitHub Profile</span>
-      </a>
+      <!-- Volatility Second Page Switcher Link -->
+      <div class="pt-3 mt-3 border-t border-purple-500/30">
+        <button onclick="switchView('volatility')" id="volatility-nav-btn" class="w-full text-left py-2.5 px-3 rounded-xl text-sm font-sans font-bold text-cyan-300 bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-500/40 transition-all flex items-center justify-between shadow-mana">
+          <span>🧠 Volatility 3 Vault</span>
+          <span class="text-xs">→</span>
+        </button>
+      </div>
 
+      <div class="pt-3 mt-2 border-t border-purple-500/30 flex flex-col gap-2">
+        <a href="https://www.linkedin.com/in/pratik-ingale-aa11683ba/" target="_blank" rel="noopener noreferrer" class="py-2 px-3 rounded-xl text-xs font-sans text-purple-300 hover:text-cyan-300 hover:bg-purple-950/40 border border-purple-500/30 transition-all flex items-center gap-2">
+          <span>💼</span> LinkedIn Profile
+        </a>
+        <a href="https://github.com/MHpratik" target="_blank" rel="noopener noreferrer" class="py-2 px-3 rounded-xl text-xs font-sans text-purple-300 hover:text-cyan-300 hover:bg-purple-950/40 border border-purple-500/30 transition-all flex items-center gap-2">
+          <span>🐙</span> GitHub Repository
+        </a>
+      </div>
+      
       <button id="theme" type="button" class="mt-2 w-full py-2.5 px-4 rounded-xl bg-slate-900/90 border border-purple-500/40 text-purple-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-purple-950 transition-all cursor-pointer shadow-shadow-monarch">
         ⚡ Switch Aura
       </button>
     </nav>
 
-    <!-- Main Content Area with Staggered Entrance -->
-    <main class="space-y-12 load-stagger">
+    <!-- Content Area: View 1 (Main Dashboard) & View 2 (Volatility Memory Forensics Vault) -->
+    <main class="space-y-12">
       
-      <!-- HEADER WITH LIVE ANIMATED MANA MATRIX CANVAS (INTRO TEXT REMOVED) -->
-      <header class="shadow-card p-4 sm:p-6 rounded-3xl mana-border relative overflow-hidden flex flex-col justify-between min-h-[360px]">
+      <!-- ================= VIEW 1: MAIN DASHBOARD ================= -->
+      <div id="view-main" class="view-panel active space-y-12 load-stagger">
         
-        <!-- Live Visual Canvas Overlay -->
-        <div class="absolute inset-0 z-0">
-          <canvas id="manaMatrixCanvas" class="w-full h-full block cursor-crosshair"></canvas>
-        </div>
-
-        <!-- Background Ambient Glows -->
-        <div class="absolute -right-16 -top-16 w-72 h-72 bg-purple-600/15 rounded-full blur-3xl pointer-events-none aura-glow z-0"></div>
-        <div class="absolute left-10 bottom-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none aura-glow z-0"></div>
-
-        <!-- Top Header Status Bar -->
-        <div class="relative z-10 flex flex-wrap items-center justify-between gap-3 pointer-events-none">
-          <div class="inline-flex items-center gap-2.5 bg-red-500/15 text-red-400 border border-red-500/40 font-heading font-bold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-danger-glow backdrop-blur-md">
-            <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
-            RED GATE ALERT: LIVE THREAT MATRIX
-          </div>
-
-          <div class="flex items-center gap-2 font-mono text-xs bg-slate-950/70 border border-cyan-500/30 px-3 py-1.5 rounded-full text-cyan-300 backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-            FPS: <span id="fpsCounter" class="font-bold text-white">60</span>
-            <span class="text-slate-500">|</span>
-            NODES: <span id="nodeCount" class="font-bold text-purple-300">0</span>
-          </div>
-        </div>
-
-        <!-- Center Overlay Interactive Indicator -->
-        <div class="relative z-10 my-auto text-center pointer-events-none py-6">
-          <h1 class="font-display font-black text-2xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-300 to-cyan-200 tracking-wider uppercase drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]">
-            SHADOW MONARCH MATRIX
-          </h1>
-          <p class="font-mono text-xs sm:text-sm text-purple-300/80 mt-1 uppercase tracking-widest">
-            REAL-TIME INTEL SCANNER &bull; INTERACTIVE NODE NETWORK
-          </p>
-        </div>
-        
-        <!-- Bottom Header Meta Bar -->
-        <div class="relative z-10 pt-4 border-t border-purple-500/20 text-xs sm:text-sm text-slate-300 flex flex-wrap items-center justify-between gap-4 font-mono backdrop-blur-sm bg-slate-950/40 -mx-4 -mb-4 sm:-mx-6 sm:-mb-6 p-4 rounded-b-3xl">
-          <div class="flex items-center gap-2 flex-wrap">
-            <span>COMMANDER: <b class="text-cyan-300 font-bold">PRATIK INGALE</b></span>
-            <span class="text-slate-500 font-normal hidden sm:inline">(CEH &bull; CHFI)</span>
-            <a href="https://www.linkedin.com/in/pratik-ingale-aa11683ba/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-cyan-950/80 border border-cyan-400/60 text-cyan-300 font-bold text-xs hover:bg-cyan-900 hover:border-cyan-300 transition-all shadow-mana group">
-              <svg class="w-3.5 h-3.5 fill-current text-cyan-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/>
-              </svg>
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/MHpratik" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-400/60 text-purple-300 font-bold text-xs hover:bg-purple-900 hover:border-purple-300 transition-all shadow-shadow-monarch group">
-              <svg class="w-3.5 h-3.5 fill-current text-purple-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              <span>GitHub</span>
-            </a>
-          </div>
-          <div class="flex items-center gap-2 flex-wrap">
-            <div class="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-500/50 text-purple-300 shadow-shadow-monarch text-xs">
-              THM Top 2% ⚡
+        <!-- HEADER -->
+        <header class="shadow-card p-8 sm:p-12 rounded-3xl mana-border relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl pointer-events-none aura-glow"></div>
+          <div class="absolute left-10 bottom-0 w-72 h-72 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none aura-glow"></div>
+          
+          <div class="relative z-10">
+            <div class="inline-flex items-center gap-2.5 bg-red-500/15 text-red-400 border border-red-500/40 font-heading font-bold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-6 shadow-danger-glow">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+              RED GATE ALERT: CURSED PAYLOADS ENCOUNTERED
             </div>
-            <div class="px-2.5 py-1 rounded-lg bg-cyan-950/80 border border-cyan-500/50 text-cyan-300 shadow-mana text-xs">
-              S-RANK // ACTIVE MONITORING
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <section id="summary" class="space-y-6">
-        <div>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Mission Matrix</h2>
-          <p class="sub text-slate-400 text-sm mt-1">Live behavior traces, outbound spirit connections, and dropped physical payloads like <code>Payment-updated.pdf</code> captured during active raids.</p>
-        </div>
-
-        <div class="stats grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="shadow-card p-5 rounded-2xl mana-border">
-            <div class="n font-display font-black text-3xl sm:text-4xl text-cyan-300" data-stat="tasks">0</div>
-            <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mt-2 block">Gate Raids</span>
-          </div>
-          <div class="shadow-card p-5 rounded-2xl mana-border">
-            <div class="n font-display font-black text-3xl sm:text-4xl text-purple-400" data-stat="urls">0</div>
-            <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mt-2 block">Tracked Threat Artifacts</span>
-          </div>
-          <div class="shadow-card p-5 rounded-2xl mana-border">
-            <div class="n font-display font-black text-3xl sm:text-4xl text-emerald-400" data-stat="online">0</div>
-            <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mt-2 block">Active Gate Beacons</span>
-          </div>
-          <div class="shadow-card p-5 rounded-2xl mana-border">
-            <div class="n font-display font-black text-3xl sm:text-4xl text-slate-400" data-stat="offline">0</div>
-            <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mt-2 block">Sealed Dungeons</span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <div class="shadow-card p-5 rounded-2xl border border-purple-500/30 flex items-start gap-4">
-            <span class="text-2xl">🗡️</span>
-            <div>
-              <b class="text-white font-heading font-bold text-base">Dynamic &amp; Static Extraction Scope</b>
-              <small class="text-slate-400 block text-xs mt-0.5">Isolated container raids monitoring enemy behavior and network summoning calls.</small>
-            </div>
-          </div>
-          <div class="shadow-card p-5 rounded-2xl border border-cyan-500/30 flex items-start gap-4">
-            <span class="text-2xl">👑</span>
-            <div>
-              <b class="text-white font-heading font-bold text-base">Shadow Monarch Credentials</b>
-              <small class="text-slate-400 block text-xs mt-0.5">Certified Ethical Hacker &amp; Computer Hacking Forensic Investigator.</small>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="tasks" class="space-y-6">
-        <div>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Active Gate Raids</h2>
-          <p class="sub text-slate-400 text-sm mt-1">Interactive ANY.RUN sandbox gates ready for S-rank hunter inspection.</p>
-        </div>
-        <div class="list space-y-3" id="task-list"></div>
-      </section>
-
-      <!-- HYBRID ANALYSIS SECTION -->
-      <section id="hybrid" class="space-y-6">
-        <div>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Hybrid Analysis Deep Scan</h2>
-          <p class="sub text-slate-400 text-sm mt-1">Sandbox telemetry and threat intelligence report for targeted binary artifact <code>updatenow.exe</code>.</p>
-        </div>
-
-        <div class="shadow-card p-6 sm:p-8 rounded-3xl mana-border space-y-6">
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-purple-500/30">
-            <div>
-              <div class="flex items-center gap-3 mb-2">
-                <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 border border-red-500/40 text-xs font-mono font-bold">MALICIOUS</span>
-                <span class="text-xs font-mono text-purple-300">Family: <b>AIT:Trojan.Nymeria.6243</b></span>
-              </div>
-              <h3 class="font-mono text-xl sm:text-2xl text-cyan-300 font-bold">updatenow.exe</h3>
-              <p class="text-xs font-mono text-slate-400 mt-1">peexe &bull; autoit &bull; executable &bull; 588.0 KiB (602,112 bytes)</p>
-            </div>
-            <div class="flex gap-3">
-              <button class="btn px-4 py-2.5 rounded-xl bg-slate-900 border border-purple-500/40 text-purple-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-purple-950 transition-all cursor-pointer" type="button" data-copy="https://hybrid-analysis.com/sample/c25a6673a24d169de1bb399d226c12cdc666e0fa534149fc9fa7896ee61d406f">Copy URL</button>
-              <a class="btn primary px-5 py-2.5 rounded-xl bg-cyan-400 text-black font-heading font-black text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-mana text-center" href="https://hybrid-analysis.com/sample/c25a6673a24d169de1bb399d226c12cdc666e0fa534149fc9fa7896ee61d406f" target="_blank" rel="noopener noreferrer">Open Hybrid Analysis</a>
-            </div>
-          </div>
-
-          <!-- Metrics Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            <!-- Threat Score -->
-            <div class="bg-slate-900/80 p-5 rounded-2xl border border-purple-500/20 flex flex-col items-center justify-center text-center">
-              <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mb-3">Threat Score</span>
-              <div class="w-24 h-24 rounded-full border-4 border-red-500 flex flex-col items-center justify-center shadow-danger-glow">
-                <span class="font-display font-black text-2xl text-white">100</span>
-                <span class="text-[10px] font-mono text-slate-400">/ 100</span>
-              </div>
-              <span class="text-xs font-bold text-red-400 mt-3 font-mono">MALICIOUS</span>
-            </div>
-
-            <!-- AV Detections -->
-            <div class="bg-slate-900/80 p-5 rounded-2xl border border-purple-500/20 flex flex-col items-center justify-center text-center">
-              <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mb-3">AV Detections</span>
-              <div class="w-24 h-24 rounded-full border-4 border-red-500 border-t-emerald-400 flex flex-col items-center justify-center shadow-mana">
-                <span class="font-display font-black text-2xl text-white">18</span>
-                <span class="text-[10px] font-mono text-slate-400">/ 25</span>
-              </div>
-              <div class="flex items-center gap-3 text-[11px] font-mono mt-3">
-                <span class="text-red-400">● 18 Mal</span>
-                <span class="text-slate-400">● 0 Sus</span>
-                <span class="text-emerald-400">● 7 Clean</span>
-              </div>
-            </div>
-
-            <!-- Indicators -->
-            <div class="bg-slate-900/80 p-5 rounded-2xl border border-purple-500/20 flex flex-col items-center justify-center text-center">
-              <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mb-3">Indicators</span>
-              <div class="w-24 h-24 rounded-full border-4 border-cyan-400 flex flex-col items-center justify-center shadow-mana">
-                <span class="font-display font-black text-2xl text-white">267</span>
-                <span class="text-[10px] font-mono text-slate-400">total</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px] font-mono mt-3 flex-wrap justify-center">
-                <span class="text-red-400">● 8 Mal</span>
-                <span class="text-amber-400">● 22 Sus</span>
-                <span class="text-cyan-400">● 237 Info</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="feed" class="space-y-6">
-        <div>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Monster Threat Index</h2>
-          <p class="sub text-slate-400 text-sm mt-1">Ten hazardous payload URLs tracked by URLhaus (abuse.ch). Do not trigger without mana protection.</p>
-        </div>
-        <div class="table-wrap rounded-2xl overflow-hidden shadow-card border border-purple-500/30 overflow-x-auto">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="bg-slate-900/90 text-cyan-300 font-heading">
-                <th class="py-3 px-4">#</th>
-                <th class="py-3 px-4">Cursed URL</th>
-                <th class="py-3 px-4">Monstrous Species</th>
-                <th class="py-3 px-4">Gate Status</th>
-              </tr>
-            </thead>
-            <tbody id="feed-body" class="divide-y divide-slate-800/80 font-sans text-sm"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- VIRUSTOTAL STATIC ANALYSIS -->
-      <section id="virustotal" class="space-y-6">
-        <div>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">VirusTotal Static Analysis</h2>
-          <p class="sub text-slate-400 text-sm mt-1">Static analysis and multi-engine antivirus detection report for extracted file artifact.</p>
-        </div>
-        
-        <div class="shadow-card p-6 sm:p-8 rounded-3xl mana-border space-y-6">
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-purple-500/30">
-            <div class="min-w-0">
-              <div class="flex items-center gap-3 mb-2">
-                <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">SHA-256 HASH</span>
-                <span class="text-xs font-mono text-purple-300">VIRUSTOTAL INTELLIGENCE</span>
-              </div>
-              <span class="font-mono text-xs sm:text-sm text-cyan-300 font-bold break-all block">ced525930c76834184b4e194077c8c4e7342b3323544365b714943519a0f92af</span>
-            </div>
-            <div class="acts flex gap-3 w-full sm:w-auto justify-end shrink-0">
-              <button class="btn px-4 py-2.5 rounded-xl bg-slate-900 border border-purple-500/40 text-purple-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-purple-950 transition-all cursor-pointer" type="button" data-copy="ced525930c76834184b4e194077c8c4e7342b3323544365b714943519a0f92af">Copy Hash</button>
-              <a class="btn primary px-5 py-2.5 rounded-xl bg-cyan-400 text-black font-heading font-black text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-mana text-center" href="https://www.virustotal.com/gui/file/ced525930c76834184b4e194077c8c4e7342b3323544365b714943519a0f92af" target="_blank" rel="noopener noreferrer">Open VT Report</a>
-            </div>
-          </div>
-
-          <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-purple-500/20 font-mono text-xs text-slate-300 space-y-2">
-            <div class="flex flex-col sm:flex-row sm:justify-between gap-1 border-b border-slate-800 pb-2">
-              <span class="text-slate-400">TARGET FILE:</span>
-              <span class="text-cyan-300 font-bold">Phishing / Malware Static Sample</span>
-            </div>
-            <div class="flex flex-col sm:flex-row sm:justify-between gap-1 border-b border-slate-800 pb-2">
-              <span class="text-slate-400">ANALYSIS ENGINE:</span>
-              <span class="text-purple-300">VirusTotal Multi-AV Inspection</span>
-            </div>
-            <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
-              <span class="text-slate-400">SHA-256 SIGNATURE:</span>
-              <span class="text-slate-200 break-all">ced525930c76834184b4e194077c8c4e7342b3323544365b714943519a0f92af</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECURITY RULES & WARNING SECTION -->
-      <section id="security-rules" class="space-y-6">
-        <div>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Security Rules &amp; Warning</h2>
-          <p class="sub text-slate-400 text-sm mt-1">Mandatory safety protocols and operational guardrails for handling live malware artifacts.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Warning Card -->
-          <div class="shadow-card p-6 rounded-3xl mana-border border-red-500/40 space-y-4">
-            <div class="flex items-center gap-3 text-red-400 font-heading font-bold text-base uppercase tracking-wider">
-              <span class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
-              Critical Safety Warning
-            </div>
-            <p class="text-slate-300 text-xs sm:text-sm font-sans leading-relaxed">
-              All artifacts, URLs, and binaries cataloged within this archive (including <code class="text-red-300">updatenow.exe</code> and active C2 nodes) are <strong class="text-white">live malicious payloads</strong>. Unauthorized execution on production hosts will result in system compromise or data destruction.
+            
+            <p class="lede text-slate-300 text-base sm:text-lg max-w-2xl font-sans leading-relaxed">
+              Hello, I’m Pratik Ingale — a CEH and CHFI certified cybersecurity practitioner focused on ethical hacking, digital forensics, and threat analysis.
             </p>
-            <div class="p-3 rounded-xl bg-red-950/40 border border-red-500/30 text-xs font-mono text-red-300">
-              ⚠️ NEVER execute samples outside of isolated sandboxes or air-gapped VMs.
+            
+            <div class="byline mt-6 pt-6 border-t border-purple-500/20 text-xs sm:text-sm text-slate-300 flex flex-wrap items-center gap-4 font-mono">
+              <div>COMMANDER: <b class="text-cyan-300 font-bold">PRATIK INGALE</b> (Lead Hunter)</div>
+              <div class="px-3 py-1 rounded-lg bg-purple-950/80 border border-purple-500/50 text-purple-300 shadow-shadow-monarch">THM Top 2% ⚡</div>
+              <div class="px-3 py-1 rounded-lg bg-cyan-950/80 border border-cyan-500/50 text-cyan-300 shadow-mana">S-RANK // CEH &amp; CHFI</div>
+              <div class="flex items-center gap-2">
+                <a href="https://www.linkedin.com/in/pratik-ingale-aa11683ba/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline font-bold">[LinkedIn]</a>
+                <a href="https://github.com/MHpratik" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 underline font-bold">[GitHub]</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- SPECIAL VOLATILITY REDIRECTION BANNER CARD -->
+        <section class="shadow-card p-6 sm:p-8 rounded-3xl mana-border border-cyan-400/60 relative overflow-hidden bg-gradient-to-r from-cyan-950/40 via-purple-950/30 to-slate-950">
+          <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div class="space-y-2 max-w-2xl">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">
+                <span>🧠 FORENSIC VAULT MODULE</span>
+              </div>
+              <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Volatility 3 Memory Forensics &amp; FTK Imager</h2>
+              <p class="text-slate-300 text-sm font-sans">
+                Access step-by-step operational instructions for installing Volatility 3 from GitHub, capturing live RAM dumps via FTK Imager, and executing kernel, process, network, and user hash analysis commands.
+              </p>
+            </div>
+            <button onclick="switchView('volatility')" class="px-6 py-3.5 rounded-2xl bg-cyan-400 text-black font-heading font-black text-sm uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-mana shrink-0 flex items-center gap-3 cursor-pointer">
+              <span>Enter Memory Vault</span>
+              <span class="text-lg">→</span>
+            </button>
+          </div>
+        </section>
+
+        <section id="summary" class="space-y-6">
+          <div>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Mission Summary</h2>
+            <p class="sub text-slate-400 text-sm mt-1">Live behavior traces, outbound spirit connections, and dropped physical payloads like <code>Payment-updated.pdf</code> captured during active raids.</p>
+          </div>
+
+          <div class="stats grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="shadow-card p-5 rounded-2xl mana-border">
+              <div class="n font-display font-black text-3xl sm:text-4xl text-cyan-300" data-stat="tasks">0</div>
+              <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mt-2 block">Gate Raids</span>
+            </div>
+            <div class="shadow-card p-5 rounded-2xl mana-border">
+              <div class="n font-display font-black text-3xl sm:text-4xl text-purple-400" data-stat="urls">0</div>
+              <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mt-2 block">Tracked Threat Artifacts</span>
+            </div>
+            <div class="shadow-card p-5 rounded-2xl mana-border">
+              <div class="n font-display font-black text-3xl sm:text-4xl text-emerald-400" data-stat="online">0</div>
+              <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mt-2 block">Active Gate Beacons</span>
+            </div>
+            <div class="shadow-card p-5 rounded-2xl mana-border">
+              <div class="n font-display font-black text-3xl sm:text-4xl text-slate-400" data-stat="offline">0</div>
+              <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mt-2 block">Sealed Dungeons</span>
             </div>
           </div>
 
-          <!-- Rules Card -->
-          <div class="shadow-card p-6 rounded-3xl mana-border space-y-4">
-            <div class="flex items-center gap-3 text-cyan-300 font-heading font-bold text-base uppercase tracking-wider">
-              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
-              Hunter Security Protocols
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="shadow-card p-5 rounded-2xl border border-purple-500/30 flex items-start gap-4">
+              <span class="text-2xl">🗡️</span>
+              <div>
+                <b class="text-white font-heading font-bold text-base">Dynamic &amp; Static Extraction Scope</b>
+                <small class="text-slate-400 block text-xs mt-0.5">Isolated container raids monitoring enemy behavior and network summoning calls.</small>
+              </div>
             </div>
-            <ul class="space-y-2 text-xs sm:text-sm text-slate-300 font-sans">
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400 font-mono font-bold">01.</span>
-                <span><strong>Strict Isolation:</strong> Always perform behavioral and static analysis inside isolated hypervisors (ANY.RUN, Hybrid Analysis, or Cuckoo Sandbox).</span>
+            <div class="shadow-card p-5 rounded-2xl border border-cyan-500/30 flex items-start gap-4">
+              <span class="text-2xl">👑</span>
+              <div>
+                <b class="text-white font-heading font-bold text-base">Shadow Monarch Credentials</b>
+                <small class="text-slate-400 block text-xs mt-0.5">Certified Ethical Hacker &amp; Computer Hacking Forensic Investigator.</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="tasks" class="space-y-6">
+          <div>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Active Gate Raids</h2>
+            <p class="sub text-slate-400 text-sm mt-1">Interactive ANY.RUN sandbox gates ready for S-rank hunter inspection.</p>
+          </div>
+          <div class="list space-y-3" id="task-list"></div>
+        </section>
+
+        <!-- HYBRID ANALYSIS SECTION -->
+        <section id="hybrid" class="space-y-6">
+          <div>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Hybrid Analysis Deep Scan</h2>
+            <p class="sub text-slate-400 text-sm mt-1">Sandbox telemetry and threat intelligence report for targeted binary artifact <code>updatenow.exe</code>.</p>
+          </div>
+
+          <div class="shadow-card p-6 sm:p-8 rounded-3xl mana-border space-y-6">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-purple-500/30">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 border border-red-500/40 text-xs font-mono font-bold">MALICIOUS</span>
+                  <span class="text-xs font-mono text-purple-300">Family: <b>AIT:Trojan.Nymeria.6243</b></span>
+                </div>
+                <h3 class="font-mono text-xl sm:text-2xl text-cyan-300 font-bold">updatenow.exe</h3>
+                <p class="text-xs font-mono text-slate-400 mt-1">peexe &bull; autoit &bull; executable &bull; 588.0 KiB (602,112 bytes)</p>
+              </div>
+              <div class="flex gap-3">
+                <button class="btn px-4 py-2.5 rounded-xl bg-slate-900 border border-purple-500/40 text-purple-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-purple-950 transition-all cursor-pointer" type="button" data-copy="https://hybrid-analysis.com/sample/c25a6673a24d169de1bb399d226c12cdc666e0fa534149fc9fa7896ee61d406f">Copy URL</button>
+                <a class="btn primary px-5 py-2.5 rounded-xl bg-cyan-400 text-black font-heading font-black text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-mana text-center" href="https://hybrid-analysis.com/sample/c25a6673a24d169de1bb399d226c12cdc666e0fa534149fc9fa7896ee61d406f" target="_blank" rel="noopener noreferrer">Open Hybrid Analysis</a>
+              </div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+              <div class="bg-slate-900/80 p-5 rounded-2xl border border-purple-500/20 flex flex-col items-center justify-center text-center">
+                <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mb-3">Threat Score</span>
+                <div class="w-24 h-24 rounded-full border-4 border-red-500 flex flex-col items-center justify-center shadow-danger-glow">
+                  <span class="font-display font-black text-2xl text-white">100</span>
+                  <span class="text-[10px] font-mono text-slate-400">/ 100</span>
+                </div>
+                <span class="text-xs font-bold text-red-400 mt-3 font-mono">MALICIOUS</span>
+              </div>
+
+              <div class="bg-slate-900/80 p-5 rounded-2xl border border-purple-500/20 flex flex-col items-center justify-center text-center">
+                <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mb-3">AV Detections</span>
+                <div class="w-24 h-24 rounded-full border-4 border-red-500 border-t-emerald-400 flex flex-col items-center justify-center shadow-mana">
+                  <span class="font-display font-black text-2xl text-white">18</span>
+                  <span class="text-[10px] font-mono text-slate-400">/ 25</span>
+                </div>
+                <div class="flex items-center gap-3 text-[11px] font-mono mt-3">
+                  <span class="text-red-400">● 18 Mal</span>
+                  <span class="text-slate-400">● 0 Sus</span>
+                  <span class="text-emerald-400">● 7 Clean</span>
+                </div>
+              </div>
+
+              <div class="bg-slate-900/80 p-5 rounded-2xl border border-purple-500/20 flex flex-col items-center justify-center text-center">
+                <span class="text-xs font-heading font-bold text-slate-400 uppercase tracking-wider mb-3">Indicators</span>
+                <div class="w-24 h-24 rounded-full border-4 border-cyan-400 flex flex-col items-center justify-center shadow-mana">
+                  <span class="font-display font-black text-2xl text-white">267</span>
+                  <span class="text-[10px] font-mono text-slate-400">total</span>
+                </div>
+                <div class="flex items-center gap-2 text-[11px] font-mono mt-3 flex-wrap justify-center">
+                  <span class="text-red-400">● 8 Mal</span>
+                  <span class="text-amber-400">● 22 Sus</span>
+                  <span class="text-cyan-400">● 237 Info</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="feed" class="space-y-6">
+          <div>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Monster Threat Index</h2>
+            <p class="sub text-slate-400 text-sm mt-1">Ten hazardous payload URLs tracked by URLhaus (abuse.ch). Do not trigger without mana protection.</p>
+          </div>
+          <div class="table-wrap rounded-2xl overflow-hidden shadow-card border border-purple-500/30">
+            <table>
+              <thead>
+                <tr class="bg-slate-900/90 text-cyan-300 font-heading">
+                  <th class="py-3 px-4">#</th>
+                  <th class="py-3 px-4">Cursed URL</th>
+                  <th class="py-3 px-4">Monstrous Species</th>
+                  <th class="py-3 px-4">Gate Status</th>
+                </tr>
+              </thead>
+              <tbody id="feed-body" class="divide-y divide-slate-800/80 font-sans text-sm"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- VIRUSTOTAL STATIC ANALYSIS -->
+        <section id="virustotal" class="space-y-6">
+          <div>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">VirusTotal Static Analysis</h2>
+            <p class="sub text-slate-400 text-sm mt-1">Static analysis and multi-engine antivirus detection report for extracted file artifact.</p>
+          </div>
+          
+          <div class="shadow-card p-6 sm:p-8 rounded-3xl mana-border space-y-6">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-purple-500/30">
+              <div class="min-w-0">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">SHA-256 HASH</span>
+                  <span class="text-xs font-mono text-purple-300">VIRUSTOTAL INTELLIGENCE</span>
+                </div>
+                <span class="font-mono text-xs sm:text-sm text-cyan-300 font-bold break-all block">ced525930c76834184b4e194077c8c4e7342b3323544365b714943519a0f92af</span>
+              </div>
+              <div class="acts flex gap-3 w-full sm:w-auto justify-end shrink-0">
+                <button class="btn px-4 py-2.5 rounded-xl bg-slate-900 border border-purple-500/40 text-purple-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-purple-950 transition-all cursor-pointer" type="button" data-copy="ced525930c76834184b4e194077c8c4e7342b3323544365b714943519a0f92af">Copy Hash</button>
+                <a class="btn primary px-5 py-2.5 rounded-xl bg-cyan-400 text-black font-heading font-black text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-mana text-center" href="https://www.virustotal.com/gui/file/ced525930c76834184b4e194077c8c4e7342b3323544365b714943519a0f92af" target="_blank" rel="noopener noreferrer">Open VT Report</a>
+              </div>
+            </div>
+
+            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-purple-500/20 font-mono text-xs text-slate-300 space-y-2">
+              <div class="flex flex-col sm:flex-row sm:justify-between gap-1 border-b border-slate-800 pb-2">
+                <span class="text-slate-400">TARGET FILE:</span>
+                <span class="text-cyan-300 font-bold">Phishing / Malware Static Sample</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:justify-between gap-1 border-b border-slate-800 pb-2">
+                <span class="text-slate-400">ANALYSIS ENGINE:</span>
+                <span class="text-purple-300">VirusTotal Multi-AV Inspection</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+                <span class="text-slate-400">SHA-256 SIGNATURE:</span>
+                <span class="text-slate-200 break-all">ced525930c76834184b4e194077c8c4e7342b3323544365b714943519a0f92af</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECURITY RULES & WARNING SECTION -->
+        <section id="security-rules" class="space-y-6">
+          <div>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Security Rules &amp; Warning</h2>
+            <p class="sub text-slate-400 text-sm mt-1">Mandatory safety protocols and operational guardrails for handling live malware artifacts.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="shadow-card p-6 rounded-3xl mana-border border-red-500/40 space-y-4">
+              <div class="flex items-center gap-3 text-red-400 font-heading font-bold text-base uppercase tracking-wider">
+                <span class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
+                Critical Safety Warning
+              </div>
+              <p class="text-slate-300 text-xs sm:text-sm font-sans leading-relaxed">
+                All artifacts, URLs, and binaries cataloged within this archive (including <code class="text-red-300">updatenow.exe</code> and active C2 nodes) are <strong class="text-white">live malicious payloads</strong>. Unauthorized execution on production hosts will result in system compromise or data destruction.
+              </p>
+              <div class="p-3 rounded-xl bg-red-950/40 border border-red-500/30 text-xs font-mono text-red-300">
+                ⚠️ NEVER execute samples outside of isolated sandboxes or air-gapped VMs.
+              </div>
+            </div>
+
+            <div class="shadow-card p-6 rounded-3xl mana-border space-y-4">
+              <div class="flex items-center gap-3 text-cyan-300 font-heading font-bold text-base uppercase tracking-wider">
+                <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+                Hunter Security Protocols
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-300 font-sans">
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-mono font-bold">01.</span>
+                  <span><strong>Strict Isolation:</strong> Always perform behavioral and static analysis inside isolated hypervisors (ANY.RUN, Hybrid Analysis, or Cuckoo Sandbox).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-mono font-bold">02.</span>
+                  <span><strong>Network Blinding:</strong> Disable local host adapters or simulate internet connectivity using fake DNS routing when handling active botnet scripts.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-mono font-bold">03.</span>
+                  <span><strong>Authorized Scope:</strong> Access threat intelligence and indicators strictly for authorized forensic investigation, defensive research, and threat hunting.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div> <!-- END VIEW 1 -->
+
+
+      <!-- ================= VIEW 2: VOLATILITY 3 MEMORY FORENSICS VAULT ================= -->
+      <div id="view-volatility" class="view-panel space-y-8">
+        
+        <!-- Header for Volatility Vault -->
+        <div class="shadow-card p-8 sm:p-10 rounded-3xl mana-border relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-72 h-72 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative z-10">
+            <div>
+              <div class="inline-flex items-center gap-2.5 bg-cyan-500/15 text-cyan-300 border border-cyan-500/40 font-heading font-bold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-4 shadow-mana">
+                <span>🛡️ S-RANK FORENSIC PROTOCOL ARCHIVE</span>
+              </div>
+              <h1 class="font-display font-black text-3xl sm:text-4xl text-white">Volatility 3 &amp; Memory Forensics Vault</h1>
+              <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl font-sans">
+                Step-by-step operational guide for setting up Volatility 3, acquiring volatile RAM dumps via FTK Imager, and performing deep OS, process, network, and credential analysis.
+              </p>
+            </div>
+            <button onclick="switchView('main')" class="px-5 py-3 rounded-xl bg-slate-900 border border-purple-500/40 text-purple-300 font-heading font-bold text-xs uppercase tracking-wider hover:bg-purple-950 transition-all cursor-pointer shadow-shadow-monarch shrink-0">
+              ← Return to Dashboard
+            </button>
+          </div>
+        </div>
+
+        <!-- Section 1: Installation -->
+        <div class="shadow-card p-6 sm:p-8 rounded-3xl mana-border space-y-6">
+          <div class="border-b border-purple-500/30 pb-4">
+            <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest block mb-1">PHASE 01</span>
+            <h2 class="font-display font-bold text-2xl text-white">Installing Volatility 3 from GitHub (Windows)</h2>
+          </div>
+          
+          <div class="space-y-4 text-sm font-sans text-slate-300">
+            <p><strong>Prerequisites:</strong> Windows system with Admin rights recommended, Python 3.8+ (Python 3.9 or 3.10 is safest), Git installed from <code class="text-cyan-300">git-scm.com</code>, and an active internet connection.</p>
+            
+            <div class="space-y-3 pt-2">
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+                <span class="text-xs font-mono text-purple-400 font-bold block">Step 1: Verify Python &amp; Git Installations</span>
+                <p class="text-xs text-slate-400">Open Command Prompt or PowerShell and run the verification commands:</p>
+                <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                  <span>python --version &amp;&amp; git --version</span>
+                  <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python --version && git --version">Copy</button>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+                <span class="text-xs font-mono text-purple-400 font-bold block">Step 2: Clone the Volatility 3 Repository</span>
+                <p class="text-xs text-slate-400">Navigate to your working directory (e.g., Desktop) and clone the repository:</p>
+                <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                  <span>git clone https://github.com/volatilityfoundation/volatility3.git</span>
+                  <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="git clone https://github.com/volatilityfoundation/volatility3.git">Copy</button>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+                <span class="text-xs font-mono text-purple-400 font-bold block">Step 3 &amp; 4: Navigate and Verify Files</span>
+                <p class="text-xs text-slate-400">Change into the cloned folder and verify the directory contents:</p>
+                <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                  <span>cd volatility3 &amp;&amp; ls</span>
+                  <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="cd volatility3 && ls">Copy</button>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+                <span class="text-xs font-mono text-purple-400 font-bold block">Step 5: Test Volatility Execution</span>
+                <p class="text-xs text-slate-400">Run the help utility to ensure framework readiness:</p>
+                <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                  <span>python vol.py -h</span>
+                  <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python vol.py -h">Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Memory Dump Creation -->
+        <div class="shadow-card p-6 sm:p-8 rounded-3xl mana-border space-y-6">
+          <div class="border-b border-purple-500/30 pb-4">
+            <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest block mb-1">PHASE 02</span>
+            <h2 class="font-display font-bold text-2xl text-white">Creating a Memory Dump using FTK Imager</h2>
+          </div>
+          
+          <div class="space-y-4 text-sm font-sans text-slate-300">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 flex items-center justify-center text-xs font-mono font-bold shrink-0">1</span>
+                <div><strong>Open FTK Imager:</strong> Go to the <b>File</b> menu and click on <b>Capture Memory</b>.</div>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400 font-mono font-bold">02.</span>
-                <span><strong>Network Blinding:</strong> Disable local host adapters or simulate internet connectivity using fake DNS routing when handling active botnet scripts.</span>
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 flex items-center justify-center text-xs font-mono font-bold shrink-0">2</span>
+                <div><strong>Set Destination Path:</strong> Browse and specify the destination path where your memory dump file will be saved.</div>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400 font-mono font-bold">03.</span>
-                <span><strong>Authorized Scope:</strong> Access threat intelligence and indicators strictly for authorized forensic investigation, defensive research, and threat hunting.</span>
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 flex items-center justify-center text-xs font-mono font-bold shrink-0">3</span>
+                <div><strong>Capture RAM:</strong> Click <b>Capture Memory</b> and wait for the dumping process to complete.</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 flex items-center justify-center text-xs font-mono font-bold shrink-0">4</span>
+                <div><strong>Locate `.mem` File:</strong> Confirm your generated <code class="text-cyan-300">.mem</code> file resides in the target directory. <em>(Note: If you prefer using a pre-captured sample dump, download it from <a href="https://www.osforensics.com/downloads/Win11Dump.zip" target="_blank" rel="noopener" class="text-cyan-400 underline">OSForensics Win11Dump.zip</a>)</em>.</div>
               </li>
             </ul>
           </div>
         </div>
-      </section>
+
+        <!-- Section 3: Analysis Commands -->
+        <div class="shadow-card p-6 sm:p-8 rounded-3xl mana-border space-y-6">
+          <div class="border-b border-purple-500/30 pb-4">
+            <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest block mb-1">PHASE 03</span>
+            <h2 class="font-display font-bold text-2xl text-white">Analyzing the Memory Dump with Volatility 3</h2>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-300 font-sans">
+            Navigate into your <code class="text-purple-300">volatility3</code> directory in your terminal and execute the following forensic plugins against your memory sample (e.g., <code class="text-cyan-300">C:\memdump.mem</code>):
+          </p>
+
+          <div class="grid grid-cols-1 gap-4">
+            
+            <!-- Command 1 -->
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-cyan-300">1. System Information (windows.info)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/30">Initial Triage</span>
+              </div>
+              <p class="text-xs text-slate-400">Displays core OS version, kernel base, system time, and processor count.</p>
+              <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                <span>python vol.py -f C:\memdump.mem windows.info</span>
+                <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python vol.py -f C:\memdump.mem windows.info">Copy</button>
+              </div>
+            </div>
+
+            <!-- Command 2 -->
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-cyan-300">2. Active Process Listing (windows.pslist)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-500/30">Process Analysis</span>
+              </div>
+              <p class="text-xs text-slate-400">Lists all active processes running at the time of capture (PID, PPID, start time, threads).</p>
+              <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                <span>python vol.py -f C:\memdump.mem windows.pslist</span>
+                <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python vol.py -f C:\memdump.mem windows.pslist">Copy</button>
+              </div>
+            </div>
+
+            <!-- Command 3 -->
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-cyan-300">3. Scan for Hidden Processes (windows.psscan)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-500/30">Rootkit Detection</span>
+              </div>
+              <p class="text-xs text-slate-400">Scans memory for process objects to uncover hidden or terminated processes bypassed by malware.</p>
+              <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                <span>python vol.py -f C:\memdump.mem windows.psscan</span>
+                <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python vol.py -f C:\memdump.mem windows.psscan">Copy</button>
+              </div>
+            </div>
+
+            <!-- Command 4 -->
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-cyan-300">4. Display Process Tree (windows.pstree)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/30">Hierarchy</span>
+              </div>
+              <p class="text-xs text-slate-400">Displays parent-child process relationships to spot anomalies like <code class="text-purple-300">explorer.exe</code> spawning <code class="text-purple-300">cmd.exe</code>.</p>
+              <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                <span>python vol.py -f C:\memdump.mem windows.pstree</span>
+                <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python vol.py -f C:\memdump.mem windows.pstree">Copy</button>
+              </div>
+            </div>
+
+            <!-- Command 5 -->
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-cyan-300">5. Network Connection Scan (windows.netscan)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-500/30">Network Triage</span>
+              </div>
+              <p class="text-xs text-slate-400">Enumerates active TCP/UDP sockets and connections to detect malicious C2 communication.</p>
+              <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                <span>python vol.py -f C:\memdump.mem windows.netscan</span>
+                <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python vol.py -f C:\memdump.mem windows.netscan">Copy</button>
+              </div>
+            </div>
+
+            <!-- Command 6 -->
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-cyan-300">6. List Loaded DLLs (windows.dlllist)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-500/30">Injection Check</span>
+              </div>
+              <p class="text-xs text-slate-400">Lists DLLs loaded within specific process memory spaces to detect injected modules.</p>
+              <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                <span>python vol.py -f C:\memdump.mem windows.dlllist</span>
+                <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python vol.py -f C:\memdump.mem windows.dlllist">Copy</button>
+              </div>
+            </div>
+
+            <!-- Command 7 -->
+            <div class="p-5 rounded-2xl bg-slate-900/90 border border-purple-500/30 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-cyan-300">7. User Hash Dumps (windows.hashdump)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-500/30">Credential Extraction</span>
+              </div>
+              <p class="text-xs text-slate-400">Extracts LM and NT password hashes of local system users from registry hives in memory.</p>
+              <div class="bg-black/60 p-3 rounded-xl font-mono text-xs text-cyan-300 flex items-center justify-between">
+                <span>python vol.py -f C:\memdump.mem windows.hashdump</span>
+                <button type="button" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-purple-900" data-copy="python vol.py -f C:\memdump.mem windows.hashdump">Copy</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flex justify-start pt-4">
+          <button onclick="switchView('main')" class="px-6 py-3 rounded-xl bg-cyan-400 text-black font-heading font-black text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-mana cursor-pointer">
+            ← Return to Threat Intelligence Dashboard
+          </button>
+        </div>
+
+      </div> <!-- END VIEW 2 -->
 
       <footer class="pt-12 border-t border-slate-800 text-slate-400 text-xs flex flex-col sm:flex-row items-center justify-between gap-4">
         <p>© Shadow Monarch Guild Archives. Prepared by Pratik Ingale (CEH, CHFI, THM top 2%).</p>
@@ -605,7 +813,7 @@
   }).observe($('.stats'));
 
   /* Active navigation item highlight */
-  var links=$$('.toc-link');
+  var links=$$('#primary-nav-links .toc-link');
   var io=new IntersectionObserver(function(es){
     es.forEach(function(en){
       if(en.isIntersecting){
@@ -619,7 +827,7 @@
     });
   },{rootMargin:'-20% 0px -70% 0px'});
 
-  $$('main section').forEach(function(s){io.observe(s)});
+  $$('main #view-main section').forEach(function(s){io.observe(s)});
 
   /* Theme Aura toggle */
   $('#theme').addEventListener('click',function(){
@@ -633,248 +841,29 @@
       toast('🌙 Shadow Monarch Dark Aura activated');
     }
   });
-
-  /* LIVE ANIMATED MANA NODE CANVAS SYSTEM */
-  var canvas = $('#manaMatrixCanvas');
-  var ctx = canvas.getContext('2d');
-  var fpsEl = $('#fpsCounter');
-  var nodeEl = $('#nodeCount');
-
-  var width, height;
-  var nodes = [];
-  var lasers = [];
-  var packets = [];
-  var mouse = { x: -1000, y: -1000, radius: 140 };
-  var lastFrame = performance.now();
-  var frameCount = 0;
-  var fps = 60;
-
-  function resizeCanvas() {
-    var rect = canvas.getBoundingClientRect();
-    width = canvas.width = rect.width;
-    height = canvas.height = rect.height;
-    initNodes();
-  }
-
-  function initNodes() {
-    nodes = [];
-    var count = Math.floor((width * height) / 4500);
-    count = Math.max(25, Math.min(count, 70));
-    
-    var types = ['normal', 'threat', 'gate'];
-
-    for (var i = 0; i < count; i++) {
-      var type = types[Math.floor(Math.random() * types.length)];
-      nodes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8,
-        radius: type === 'gate' ? 3.5 : (type === 'threat' ? 2.5 : 2),
-        type: type,
-        pulse: Math.random() * Math.PI * 2,
-        label: type === 'threat' ? 'MALWARE' : (type === 'gate' ? 'GATE' : '')
-      });
-    }
-    if (nodeEl) nodeEl.textContent = nodes.length;
-  }
-
-  // Mouse interactivity
-  canvas.addEventListener('mousemove', function(e) {
-    var rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  });
-
-  canvas.addEventListener('mouseleave', function() {
-    mouse.x = -1000;
-    mouse.y = -1000;
-  });
-
-  // Laser scanner
-  var scanY = 0;
-  var scanSpeed = 1.2;
-
-  function createPacket(n1, n2) {
-    if (Math.random() < 0.05) {
-      packets.push({
-        x: n1.x,
-        y: n1.y,
-        tx: n2.x,
-        ty: n2.y,
-        progress: 0,
-        speed: 0.02 + Math.random() * 0.03,
-        color: n1.type === 'threat' ? '#ef4444' : '#00f0ff'
-      });
-    }
-  }
-
-  function renderManaMatrix(now) {
-    var delta = now - lastFrame;
-    frameCount++;
-    if (delta >= 1000) {
-      fps = Math.round((frameCount * 1000) / delta);
-      if (fpsEl) fpsEl.textContent = fps;
-      frameCount = 0;
-      lastFrame = now;
-    }
-
-    ctx.clearRect(0, 0, width, height);
-
-    // Matrix Grid Lines
-    ctx.strokeStyle = 'rgba(29, 53, 112, 0.15)';
-    ctx.lineWidth = 1;
-    var gridSize = 30;
-    for (var x = 0; x < width; x += gridSize) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, height);
-      ctx.stroke();
-    }
-    for (var y = 0; y < height; y += gridSize) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(width, y);
-      ctx.stroke();
-    }
-
-    // Horizontal Laser Scan Effect
-    scanY += scanSpeed;
-    if (scanY > height) scanY = 0;
-
-    var gradient = ctx.createLinearGradient(0, scanY - 15, 0, scanY + 5);
-    gradient.addColorStop(0, 'rgba(0, 240, 255, 0)');
-    gradient.addColorStop(0.5, 'rgba(0, 240, 255, 0.25)');
-    gradient.addColorStop(1, 'rgba(168, 85, 247, 0)');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, scanY - 15, width, 20);
-
-    ctx.strokeStyle = 'rgba(0, 240, 255, 0.7)';
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(0, scanY);
-    ctx.lineTo(width, scanY);
-    ctx.stroke();
-
-    // Update & Draw Nodes
-    for (var i = 0; i < nodes.length; i++) {
-      var n = nodes[i];
-      n.x += n.vx;
-      n.y += n.vy;
-
-      if (n.x < 0 || n.x > width) n.vx *= -1;
-      if (n.y < 0 || n.y > height) n.vy *= -1;
-
-      // Mouse repulsion
-      var dx = n.x - mouse.x;
-      var dy = n.y - mouse.y;
-      var dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < mouse.radius) {
-        var angle = Math.atan2(dy, dx);
-        var force = (mouse.radius - dist) / mouse.radius;
-        n.x += Math.cos(angle) * force * 3;
-        n.y += Math.sin(angle) * force * 3;
-      }
-
-      n.pulse += 0.03;
-      var currentR = n.radius + Math.sin(n.pulse) * 0.8;
-
-      // Draw Connections
-      for (var j = i + 1; j < nodes.length; j++) {
-        var n2 = nodes[j];
-        var cdx = n.x - n2.x;
-        var cdy = n.y - n2.y;
-        var cdist = Math.sqrt(cdx * cdx + cdy * cdy);
-
-        if (cdist < 110) {
-          ctx.beginPath();
-          ctx.moveTo(n.x, n.y);
-          ctx.lineTo(n2.x, n2.y);
-
-          var alpha = (1 - cdist / 110) * 0.35;
-          if (n.type === 'threat' || n2.type === 'threat') {
-            ctx.strokeStyle = 'rgba(239, 68, 68, ' + alpha + ')';
-          } else if (n.type === 'gate' || n2.type === 'gate') {
-            ctx.strokeStyle = 'rgba(168, 85, 247, ' + alpha + ')';
-          } else {
-            ctx.strokeStyle = 'rgba(0, 240, 255, ' + alpha + ')';
-          }
-          ctx.lineWidth = 1;
-          ctx.stroke();
-
-          createPacket(n, n2);
-        }
-      }
-
-      // Draw Node Outer Pulse
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, currentR * 2, 0, Math.PI * 2);
-      if (n.type === 'threat') {
-        ctx.fillStyle = 'rgba(239, 68, 68, 0.15)';
-      } else if (n.type === 'gate') {
-        ctx.fillStyle = 'rgba(168, 85, 247, 0.2)';
-      } else {
-        ctx.fillStyle = 'rgba(0, 240, 255, 0.15)';
-      }
-      ctx.fill();
-
-      // Draw Node Center
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, currentR, 0, Math.PI * 2);
-      if (n.type === 'threat') {
-        ctx.fillStyle = '#ef4444';
-        ctx.shadowColor = '#ef4444';
-      } else if (n.type === 'gate') {
-        ctx.fillStyle = '#a855f7';
-        ctx.shadowColor = '#a855f7';
-      } else {
-        ctx.fillStyle = '#00f0ff';
-        ctx.shadowColor = '#00f0ff';
-      }
-      ctx.shadowBlur = 8;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-
-      // Draw Labels
-      if (n.label) {
-        ctx.font = '8px "JetBrains Mono", monospace';
-        ctx.fillStyle = n.type === 'threat' ? '#fca5a5' : '#d8b4fe';
-        ctx.fillText(n.label, n.x + 6, n.y + 3);
-      }
-    }
-
-    // Render Data Packets
-    for (var k = packets.length - 1; k >= 0; k--) {
-      var p = packets[k];
-      p.progress += p.speed;
-      if (p.progress >= 1) {
-        packets.splice(k, 1);
-        continue;
-      }
-      var px = p.x + (p.tx - p.x) * p.progress;
-      var py = p.y + (p.ty - p.y) * p.progress;
-
-      ctx.beginPath();
-      ctx.arc(px, py, 1.5, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.shadowColor = p.color;
-      ctx.shadowBlur = 6;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    }
-
-    requestAnimationFrame(renderManaMatrix);
-  }
-
-  window.addEventListener('resize', resizeCanvas);
-  
-  // Initialize canvas after DOM loads
-  setTimeout(function() {
-    resizeCanvas();
-    requestAnimationFrame(renderManaMatrix);
-  }, 100);
-
 })();
+
+/* Global View Switcher */
+function switchView(viewName) {
+  var viewMain = document.getElementById('view-main');
+  var viewVol = document.getElementById('view-volatility');
+  var primaryNav = document.getElementById('primary-nav-links');
+  var volBtn = document.getElementById('volatility-nav-btn');
+
+  if(viewName === 'volatility') {
+    viewMain.classList.remove('active');
+    viewVol.classList.add('active');
+    primaryNav.style.opacity = '0.5';
+    volBtn.classList.add('bg-cyan-900', 'border-cyan-300');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  } else {
+    viewVol.classList.remove('active');
+    viewMain.classList.add('active');
+    primaryNav.style.opacity = '1';
+    volBtn.classList.remove('bg-cyan-900', 'border-cyan-300');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+}
 </script>
 </body>
 </html>
